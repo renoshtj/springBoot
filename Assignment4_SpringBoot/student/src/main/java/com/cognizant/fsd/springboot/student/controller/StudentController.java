@@ -28,14 +28,18 @@ public class StudentController {
 	public Student getStudent(@PathVariable("id") String id){
 		return ss.getStudent(id);
 	}
-
-	@RequestMapping(method=RequestMethod.POST, value="/addUpdate")
-	public void addStudent(@RequestBody Student student){
+	@RequestMapping(method = RequestMethod.POST, value = "/add")
+	public void addStudent(@RequestBody Student student) {
 		ss.addUpdateStudent(student);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="/delete/{id}")
-	public void removeStudent(@PathVariable("id") String id){
+	@RequestMapping(method = RequestMethod.PUT, value = "/Update")
+	public void updateStudent(@RequestBody Student student) {
+	       ss.addUpdateStudent(student);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value = "/delete/{id}")
+	public void removeStudent(@PathVariable("id") String id) {
 		ss.removeStudent(id);
 	}
 }
